@@ -10,6 +10,7 @@ import time
 import uuid
 from datetime import datetime
 from pathlib import Path
+from tqdm import tqdm
 
 from TwitchChannelPointsMiner.classes.Chat import ChatPresence, ThreadChat
 from TwitchChannelPointsMiner.classes.entities.PubsubTopic import PubsubTopic
@@ -259,7 +260,7 @@ class TwitchChannelPointsMiner:
                 f"Loading data for {len(streamers_name)} streamers. Please wait...",
                 extra={"emoji": ":nerd_face:"},
             )
-            for username in streamers_name:
+            for username in tqdm(streamers_name, desc="Loading streamer data", unit="streamer"):
                 if username in streamers_name:
                     time.sleep(random.uniform(0.3, 0.7))
                     try:

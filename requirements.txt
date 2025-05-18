@@ -11,3 +11,5 @@ irc
 pandas
 pytz
 validators
+
+tqdm
